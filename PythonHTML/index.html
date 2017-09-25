@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<title>
+			Testing realtime
+		</title>
+	</head>
+
+	<body>
+		For changing the server port, change url parameter of ajax method
+		<div id="autorefresh">
+			Temperature 1<div id="current1"></div>
+			Temperature 2<div id="current2"></div>
+			Time 1<div id="time1"></div>
+		</div>
+
+		<script>
+			function dealWithData(jsonData)	{
+				$("#current1").html(jsonData["current1"]);
+				$("#current2").html(jsonData["current2"]);
+				$("#time1").html(jsonData["time"]);
+			}
+		</script>
+
+		<script   src="https://code.jquery.com/jquery-3.2.1.js"
+		  	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  			crossorigin="anonymous">
+		</script>
+		<script type="text/javascript">
+
+			window.setInterval(function()	{
+				$.ajax({url: "http://localhost:5000",
+						type: "GET",
+						dataType: "jsonp",
+						success: function(result){
+									dealWithData(result);
+					    		}
+						});
+			}, 500);
+
+		</script>
+	</body>
+</html>
