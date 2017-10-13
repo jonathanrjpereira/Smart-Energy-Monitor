@@ -29,8 +29,8 @@ void loop(void)
   Serial.print("\tVoltage: ");
   Serial.println(Voltage);  
   Serial.println(); 
-  pwm = pwm + add;
-  if(pwm <=0 || pwm >=255)
+  pwm = pwm + add;  //Increment the PWM value with every iteration
+  if(pwm <=0 || pwm >=255)  //Change direction of PWM signal   
   {
     add = -add;
   }
