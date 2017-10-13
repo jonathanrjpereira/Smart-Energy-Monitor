@@ -8,8 +8,8 @@ int mVperAmp = 66; // use 100 for 20A Module and 66 for 30A Module
 double Voltage = 0;
 double VRMS = 0;
 double AmpsRMS = 0;
-double Amp_Offset = 0.13;
-
+double Amp_Offset = 0.134166;
+double Power = 0;
 
 
 void setup(){ 
@@ -22,8 +22,11 @@ void loop(){
  Voltage = getVPP();
  VRMS = (Voltage/2.0) *0.707; 
  AmpsRMS = (VRMS * 1000)/mVperAmp;
+ Serial.print("Amps RMS: ");
  Serial.print(AmpsRMS - Amp_Offset);
- Serial.println(" Amps RMS");
+ Power = (AmpsRMS - Amp_Offset)*240 ;
+ Serial.print("   Power: ");
+ Serial.println(Power);
 
 }
 
