@@ -8,7 +8,7 @@ int mVperAmp = 66; // use 100 for 20A Module and 66 for 30A Module
 double Voltage = 0;
 double VRMS = 0;
 double AmpsRMS = 0;
-double Amp_Offset = 0.134166;
+double Amp_Offset = 0.154166;
 double Power = 0;
 
 
