@@ -44,8 +44,8 @@ def hello():
   print (x)
 	# the output of which is stored in the below dictionary
   output = {
-		"current1": x,
-		"current2": "30 A"
+		"current1": watt,
+		"current2": x
 	}
 
 	# dummy data, that changes in realtime
