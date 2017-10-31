@@ -1,0 +1,164 @@
+\documentclass{crceitthesis-3}
+\usepackage{longtable} %for long tables to be fitted on multiple pages
+\usepackage{ragged2e}
+%\usepackage{color}
+\usepackage{graphicx}
+\usepackage{varioref}
+\usepackage{epsfig}
+\usepackage{times}
+\usepackage[section]{placeins} % to keep floats(figures) in the section in which they were issued
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage[T1]{fontenc}
+\usepackage{ascii}
+\usepackage{nomencl}
+\usepackage{lscape}
+\usepackage{longtable,tabu}
+\usepackage{lmodern}
+\usepackage{lipsum}
+\usepackage[tight,footnotesize]{subfigure}
+\usepackage{cite}
+\usepackage[acronym]{glossaries} 
+\usepackage{fancybox}
+\usepackage{algorithmic}
+\usepackage[boxed]{algorithm}
+\usepackage[compact]{titlesec}
+\usepackage{gensymb}
+\usepackage{multicol}
+%----------For code listing---------------------------------------------------
+\usepackage{listings} % Required for inserting code snippets
+\usepackage[usenames,dvipsnames]{color} % Required for specifying custom colors and referring to colors by name
+
+\definecolor{DarkGreen}{rgb}{0.0,0.4,0.0} % Comment color
+\definecolor{highlight}{RGB}{255,251,204} % Code highlight color
+
+\lstdefinestyle{Style1}{ % Define a style for your code snippet, multiple definitions can be made if, for example, you wish to insert multiple code snippets using different programming languages into one document
+language=Scilab, % Detects keywords, comments, strings, functions, etc for the language specified
+backgroundcolor=\color{highlight}, % Set the background color for the snippet - useful for highlighting
+basicstyle=\footnotesize\ttfamily, % The default font size and style of the code
+breakatwhitespace=false, % If true, only allows line breaks at white space
+breaklines=true, % Automatic line breaking (prevents code from protruding outside the box)
+captionpos=b, % Sets the caption position: b for bottom; t for top
+commentstyle=\usefont{T1}{pcr}{m}{sl}\color{DarkGreen}, % Style of comments within the code - dark green courier font
+deletekeywords={}, % If you want to delete any keywords from the current language separate them by commas
+%escapeinside={\%}, % This allows you to escape to LaTeX using the character in the bracket
+firstnumber=1, % Line numbers begin at line 1
+frame=single, % Frame around the code box, value can be: none, leftline, topline, bottomline, lines, single, shadowbox
+frameround=tttt, % Rounds the corners of the frame for the top left, top right, bottom left and bottom right positions
+keywordstyle=\color{Blue}\bf, % Functions are bold and blue
+morekeywords={}, % Add any functions no included by default here separated by commas
+numbers=left, % Location of line numbers, can take the values of: none, left, right
+numbersep=10pt, % Distance of line numbers from the code box
+numberstyle=\tiny\color{Gray}, % Style used for line numbers
+rulecolor=\color{black}, % Frame border color
+showstringspaces=false, % Don't put marks in string spaces
+showtabs=false, % Display tabs in the code as lines
+stepnumber=5, % The step distance between line numbers, i.e. how often will lines be numbered
+stringstyle=\color{Purple}, % Strings are purple
+tabsize=2, % Number of spaces per tab in the code
+}
+
+% Create a command to cleanly insert a snippet with the style above anywhere in the document
+\newcommand{\insertcode}[2]{\begin{itemize}\item[]\lstinputlisting[caption=#2,label=#1,style=Style1]{#1}\end{itemize}} % The first argument is the script location/filename and the second is a caption for the listing
+
+%--------------------------------------End of code listing-------------------
+
+\titlespacing{\section}{0pt}{2ex}{1ex}
+\titlespacing{\subsection}{0pt}{1ex}{0ex}
+\titlespacing{\subsubsection}{0pt}{0.5ex}{0ex}
+
+\usepackage[compact]{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\centering}{\chaptertitlename\ \thechapter}{20pt}{\LARGE}
+
+%\usepackage[toc,page]{appendix}
+
+\makeglossaries
+\makenomenclature
+
+\newglossaryentry{wsn}{name=WSN,description=Wireless Sensor Network}
+\newglossaryentry{manet}{name=MANET,description=Mobile Ad hoc NETwork}
+\newglossaryentry{gps}{name=GPS,description=Global Positioning System}
+\newglossaryentry{spin}{name=SPIN,description=Sensor Protocols for Information via Negotiation}
+\newglossaryentry{dc}{name=DC,description=Data Centric}
+\newglossaryentry{bs}{name=BS,description=Base Station}
+\newglossaryentry{mcfa}{name=MFCA,description=Minimum Cost Forwarding Algorithm}
+\newglossaryentry{acquire}{name=ACQUIRE,description=Active Qwery Forwarding in Sensor Networks}
+\newglossaryentry{leach}{name=LEACH,description=Low Energy Adaptive Clustering Hierarchical}
+\newglossaryentry{leachc}{name=LEACH-C,description=LEACH Centralized}
+\newglossaryentry{pegasis}{name=PEGASIS,description=Power Efficient Gathering in Sensor Information Systems}
+\newglossaryentry{teen}{name=TEEN,description=Threshold-Sensitive Energy Efficient SensormNetwork Protocol}
+\newglossaryentry{heed}{name=HEED,description=Hybrid Energy-Efficient Distributed}
+\newglossaryentry{gaf}{name=GAF,description=Geographic Adaptive Fidelity}
+\newglossaryentry{gear}{name=GEAR,description=Geographic and Energy Aware Routing}
+\newglossaryentry{sleachc}{name=sLEACH-C,description=Solar-aware LEACH-centralized extension}
+\newglossaryentry{group}{name=GROUP,description=Genetic algorithm inspired ROUting Protocol}
+\newglossaryentry{aco}{name=ACO,description=Genetic algorithm inspired ROUting Protocol}
+\newglossaryentry{pso}{name=PSO,description=Particle swarm optimization}
+
+\newglossaryentry{aodv}{name=AODV,description=Ad hoc On-demand Distance Vector}
+\newglossaryentry{dsr}{name=DSR,description=Dynamic Source Routing}
+\newglossaryentry{rfc}{name=RFC,description=Request For Comments}
+\newglossaryentry{ara}{name=ARA,description=Ant-Inspired Routing Algorithm}
+\newglossaryentry{ec}{name=EC,description=Evolutionary Computation}
+\newglossaryentry{ga}{name=GA,description=Genetic Algorithms}
+\newglossaryentry{ils}{name=ILS,description=Iterated Local Search}
+\newglossaryentry{sa}{name=SA,description=Simulated Annealing}
+\newglossaryentry{ts}{name=TS,description=Tabu Search}
+\newglossaryentry{si}{name=SI,description=Swarm Intelligence}
+\newglossaryentry{as}{name=AS,description=Ant System}
+\newglossaryentry{eas}{name=EAS,description=Elitist strategy for Ant System}
+\newglossaryentry{tsp}{name=TSP,description=Traveling Salesman Problem}
+\newglossaryentry{so}{name=SO,description=Self-Organization}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%MAIN PART OF THE REPORT%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin {document}
+\graphicspath{{./}{images/}}
+\headheight-8pt % to adjust white space.
+\headsep -12pt %
+\footskip 18mm %
+\input{prelude.tex}   %%Make changes in this file for title of the project, abstract and details of the author
+\input {Acknowledgement.tex}
+\newpage
+\tableofcontents
+\listoffigures
+%\listoftables
+\printglossaries
+\addcontentsline{toc}{chapter}{Glossary}
+%\addcontentsline{toc}{chapter}{List of Abbreviations}
+\printnomenclature[2in]
+\cleardoublepage\pagenumbering{arabic}
+\pagestyle{plain}
+\include{introduction1}
+\input{literature_review.tex}
+%\input{modifications.tex}
+\input{currentReport.tex}
+\input{result.tex}
+%\input{test.tex}
+%\input{system.tex}
+%\input{implement.tex}
+%\input{summary.tex}
+%\input{intro.tex}
+%\input{Chapter2.tex}
+%\input{Stability.tex}
+%\input{StateSpace.tex}
+%\input{CircuitExample.tex}
+%\input{SolvedEXP.tex}
+%\input{FRSS.tex}
+\input{conclusion.tex}
+\input{ref.tex}
+%\renewcommand\bibname{References}
+%\addcontentsline{toc}{chapter}{Appendix}
+%\appendix
+%\input{main.tex}
+%\insertcode{"scilab.sci"}{A sample Scilab code} % The first argument is the script location/filename and the second is a caption for the listing
+%\nocite{*}
+%\renewcommand\bibname{Bibliography}
+%\bibliographystyle{IEEEtran}
+%\bibliography{project-ref}
+%\addcontentsline{toc}{chapter}{Bibliography}
+%\setcounter{toc}{-1}
+
+
+\end{document}

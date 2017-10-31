@@ -1,0 +1,1 @@
+makeindex -s report_main.ist -t report_main.glg -o report_main.gls report_main.glo

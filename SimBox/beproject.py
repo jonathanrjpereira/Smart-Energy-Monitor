@@ -10,8 +10,8 @@ d = {'None': 0,
      'CFL & Bulb & Charger': 36,
      'CFL & CFL & Bulb': 42,
      'CFL & CFL & Charger & Bulb': 47}
-     
-     
+
+
 #while 1:
 watt =int(input())
 diff = float('inf')
@@ -22,19 +22,16 @@ for key,value in d.items():
 
 print (x)
 
-    
+
 import json
 from flask import Flask, make_response, request
-# the above two are necessary,  I had some changes in idea, for
-# simpler program.
-# the second one is a micro-framework, install it by doing
 # pip install flask
 
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
-	# Do some Calculation
+	# Error Calculation
   watt =int(input())
   diff = float('inf')
   for key,value in d.items():

@@ -1,0 +1,113 @@
+% prelude.tex
+%   - titlepage
+%   - dedication (optional)
+%   - approval sheet
+%   - table of contents, list of tables and list of figures
+%   - abstract
+%============================================================================
+
+
+\clearpage\pagenumbering{roman}  % This makes the page numbers Roman (i, ii, etc)
+
+
+% TITLE PAGE
+%   - define \title{} \author{} \date{}
+\title{Smart Energy Monitor}
+\stua{Shabbir Ahmed}
+\stub{Dylan Dcruz}
+\stuc{Jonathan Pereira}
+
+\date{\large October 26, 2017} %\today
+
+%  - Roll number, required for title page, approval sheet, and
+%    certificate of course work 
+
+\rollnuma{7173}
+\rollnumb{7304}
+\rollnumc{7337}
+
+%   - The default degree is ``Doctor of Philosophy''
+%     (unless the document style msthesis is specified
+%      and then the default degree is ``Batchlor of Engineering'')
+%     Degree can be changed using the command \mudegree{}
+\mudegree{Bachelor of Engineering}
+
+%   - The default report type is preliminary report.
+%      * for a PhD thesis, specify \thesis
+%\thesis
+%      * for a M.Tech./M.Phil./M.Des./M.S. dissertation, specify \dissertation
+\project
+%      * for a DIIT/B.Tech./M.Sc.project report, specify \project
+%\project
+%      * for any other type, use  \reporttype{}
+%\reporttype{ReportType}
+
+%   - The default department is ``Unknown Department''
+%     The department can be changed using the command \department{}
+\department{DEPARTMENT OF ELECTRONICS}
+
+%\section{Graphics}
+%    - Set the guide's name
+\setguide{Prof. Jayen Modi}
+%    - Set the coguide's name (if you have one)
+%\setcoguide{PPP}
+%    - Set external guide (if you have one)
+%\setexguide{Prof External Guide}
+
+%   - once the above are defined, use \maketitle to generate the titlepage
+\maketitle
+
+%--------------------------------------------------------------------%
+% DEDICATION
+%   Dedications, if any, must be first page after title page.
+\begin{dedication}
+ \bf \it 
+%I appreciate and am very thankful for their continued motivation and support. 
+\end{dedication}
+
+%--------------------------------------------------------------------%
+% APPROVAL SHEET
+%   - for final thesis, you need Approval Sheet. So, uncomment the
+%     \makeapproval command.
+%     it should come after dedication, if dedication is
+%     present. Otherwise it is the first page after title page.
+
+\makecertificate
+
+\makeapproval
+
+
+
+%--------------------------------------------------------------------%
+% COPYRIGHT PAGE
+%   - To include a copyright page use \copyrightpage
+% \copyrightpage
+
+%--------------------------------------------------------------------%
+% ABSTRACT
+
+\thispagestyle{empty}
+%\input{declaration.tex}
+\makedeclaration
+\input{abstract.tex}
+
+
+%--------------------------------------------------------------------%
+% CONTENTS, TABLES, FIGURES
+%\tableofcontents
+%\listoftables
+%\listoffigures
+
+%--------------------------------------------------------------------%
+% NOMENCLATURE
+%\begin{nomenclature}
+%\begin{description}
+%\item{\makebox[0.75in][l]{$C_1$}} Constant 1
+%
+%\item{\makebox[0.75in][l]{$V$}}    Voltage 
+%
+%\item{\makebox[0.75in][l]{\$}}     US Dollars
+%\end{description}
+%\end{nomenclature}
+%
+%\cleardoublepage\pagenumbering{arabic} % Make the page numbers Arabic (1, 2, etc)
