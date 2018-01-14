@@ -1,3 +1,11 @@
+the output of the examples in the Adafruit repository are the 16-bit signed integer ADC values.
+The analog sensor that I have connected to the ADC produces an ouput between 0-5V.
+Hence I have set the ADC Gain = 2/3 so that it can read a range of voltages from +/-6.144V.
+2^16 = 65,536 levels. Hence 12.288/65536 = 0.0001875. Therefore 1 level = 0.1875mV
+Hence when measuring any positive voltage(for gain 2/3) using the ADC, we should use the following formula:
+Voltage = (Raw Value + 32768) * 0.0001875
+
+
 The four addresses for the ADS1115 are set by connecting the ADDR pin to SCL, SDA, GND or VDD.
 
 | Address | Arduino       |
