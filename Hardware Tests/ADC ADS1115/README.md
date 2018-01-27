@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Adafruit Python ADS1x15
 Python code to use the ADS1015 and ADS1115 analog to digital converters with a Raspberry Pi or BeagleBone black.
 
@@ -57,6 +58,8 @@ From this we can find the value of the Input Analog Voltage for these Gain value
 =======
 =======
 >>>>>>> d37df5d3fde82caf405d9b28107875b326bac4b0
+=======
+>>>>>>> d37df5d3fde82caf405d9b28107875b326bac4b0
 The output of the examples in the Adafruit repository are the 16-bit signed integer ADC values.
 The analog sensor that I have connected to the ADC produces an ouput between 0-5V.
 Hence I have set the ADC Gain = 2/3 so that it can read a range of voltages from +/-6.144V.
@@ -64,6 +67,9 @@ Hence I have set the ADC Gain = 2/3 so that it can read a range of voltages from
 Hence when measuring any positive voltage(for gain 2/3) using the ADC, we should use the following formula:
 Voltage = (Raw Value + 32768) * 0.0001875
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> d37df5d3fde82caf405d9b28107875b326bac4b0
+=======
 >>>>>>> d37df5d3fde82caf405d9b28107875b326bac4b0
 =======
 >>>>>>> d37df5d3fde82caf405d9b28107875b326bac4b0
