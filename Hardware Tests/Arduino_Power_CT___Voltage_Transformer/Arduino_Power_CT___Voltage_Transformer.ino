@@ -3,7 +3,7 @@ float zeroPowerCurrent = 0.05;
 float ct = A0;
 float voltTransformer = A1;
 float power;
-
+float wattHour = 0;
 
 void setup() {
   // put your setup code here, to run once:
@@ -33,4 +33,12 @@ else
   Serial.print("Power: 0 ");
   Serial.println();
 }
+
+wattHour = wattHour + (power * (2.13/60/60)); //Measure Watt-Hour(Wh). 2.13 is the millis() of the entire program.
+
+//kwattHour = wattHour + (power * (2.13/60/60/60)); //Measure Kilo-Watt-Hour(kWh).
+Serial.print("Wh: ");
+Serial.println(wattHour,3);
+Serial.println(); 
+
 }
