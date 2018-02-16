@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<title>
+			Testing realtime
+		</title>
+		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+		<style>
+		body {
+		    font-family: 'Roboto';font-size: 22px;
+		}
+		</style>
+	</head>
+
+	<body bgcolor="#F1C40F">
+		<center>
+		<img src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/crce_logo.png?raw=true" style="width:125px;height:90px;">
+		</center>
+		<center>
+		<p><h1><b> Smart Energy Monitoring & Reporting</h1></b></p>
+		<p><h3>Project Mentor: Prof. Jayen Modi</h3></p>
+		<p><h4>Shabbir Ahmed (7173)</h4></p>
+		<p><h4>Dylan D'Cruz (7304)</h4></p>
+		<p><h4>Jonathan Pereira (7337)</h4></p>
+		</center>
+
+    <center>
+		<div id="autorefresh">
+			<table color="black" width="1000" height ="400" cellpadding="40" border="2">
+			<tr>
+				<th><font size="8">Active Devices</th>
+			  	<th><font size="8">Time</th>
+
+		  </tr>
+		  <tr>
+				<th><font size="8"><div id="current1"></div></th>
+				<th><font size="8"><div id="time1"></div></th>
+
+		  </tr>
+		</table>
+		</div>
+	 </center>
+
+		<script>
+			function dealWithData(jsonData)	{
+				$("#current1").html(jsonData["current1"]);
+				$("#time1").html(jsonData["time"]);
+			}
+		</script>
+
+		<script   src="https://code.jquery.com/jquery-3.2.1.js"
+		  	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  			crossorigin="anonymous">
+		</script>
+		<script type="text/javascript">
+
+			window.setInterval(function()	{
+				$.ajax({url: "http://localhost:5000",
+						type: "GET",
+						dataType: "jsonp",
+						success: function(result){
+									dealWithData(result);
+					    		}
+						});
+			}, 500);
+
+		</script>
+	</body>
+</html>
