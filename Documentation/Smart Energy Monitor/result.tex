@@ -1,0 +1,16 @@
+\chapter{Results}
+\section{Observations}
+{
+We successfully measure changes in the current drawn by the load appliances when their states change. By measuring the Phase Angle we can get Active Power and Reactive Power which further improves the accuracy of the system. We created an dataset which contains labelled data which is passed to our classification algorithm. The Naive Bayes algorithm uses the mean & standard deviation of the input parameters to determine the active devices.  }
+
+\section{Drawback }
+The user must wait for a period of 0.5s to 1s before turning ON/OFF any load appliance.  
+
+The Smart Energy Monitor is not a plug and play device. Since it deals with high levels of voltage & current, it must be installed within the household by a professional electrician.
+
+\section{Future Scope}
+\begin{enumerate}
+    \item The classification accuracy can be improved through pattern analysis by monitoring the shape of the VI trajectory. Shape features such as area under the VI curve as well as peak of segments can be further analyzed.
+    \item Analysis of Steady  State Voltage Noise such as EMI signatures can improve the detection of motor based devices like Fans, Food Mixers and Washing Machines.
+    \item Unsupervised learning methods such as Artificial Neural Networks(ANN) and Hidden Markov Model(HMM) have shown to perform well for the task of load disaggregation due to their ability to incorporate in their learning, temporal as well as appliance state transition information.
+\end{enumerate}
