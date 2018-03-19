@@ -164,7 +164,7 @@ def getDiff():
 
 def main():
 
-	filename = 'Feb_ProjData.csv'
+	filename = 'Mar_ProjData.csv'
 	#splitRatio = 0.67
 	#dataset = loadCsv(filename)
 	dataset = loadCsv(filename)
@@ -172,7 +172,7 @@ def main():
 	#print('Split ',len(dataset),' rows into train= ' , len(trainingSet),' and test=',len(testSet),' rows')
 	#print('Training Set: ',trainingSet,' and Test Set: ',testSet)
 	summaries = summarizeByClass(dataset)           #prepare model
-	print(summaries)
+	#print(summaries)
 ##	flag0=0
 ##	flag1=0
 ##	flag2=0
@@ -212,7 +212,7 @@ def main():
 		testSet=[]
 		for x in range(0,4):
 			testSet.append(inputset[x])
-		print('Change: ',testSet[0])
+		print(testSet[0])
 		predictions = getPredictions(summaries, testSet)
 		if predictions[0]==1:
 			string = '40W Bulb was switched ON'
@@ -226,7 +226,7 @@ def main():
 			string = 'Drill was switched ON'
 		elif predictions[0]==6:
 			string = 'Drill was switched OFF'
-		time.sleep(1)
+		time.sleep(2.2)
 		return string
                 
 
