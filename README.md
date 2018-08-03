@@ -10,7 +10,9 @@ The goal of the Smart Energy Monitor is to accurately predict the monthly electr
 ## Features & Current Status
  - Hardware used to Obtain Current, Active and Reactive Power Signatures of Individual devices to create high quality datasets.
  - Detect when a particular appliance has changed its state (ON/OFF).
- - Classify the Active Load Appliances by analyzing the measured electrical signals which have been obtained from a single location.  
+ - Classify the Active Load Appliances by analyzing the measured electrical signals which have been obtained from a single location.
+ - Tracking of Individual Appliance level Consumption.
+ - Electricity Bill Prediction.
  
 This project is still under active development. In addition to the exisiting Documentation, detailed step-by-step instructions as well as a technical paper shall be published before the end of 2018. The current active directory is SimBox3 which can be used to execute the above mentioned features.
 
@@ -26,8 +28,6 @@ This project is still under active development. In addition to the exisiting Doc
  2. Dash by Plottly - Analytical Web App Framework
 
 ## Future Updates
- - Electricity Bill Prediction
- - Data Analysis for Individual Appliances
  - Better GUI & a Smartphone App
  
 ## Contributing
