@@ -11,7 +11,7 @@ import datetime
 
 getcontext().prec = 10
 
-uC = serial.Serial('/dev/ttyACM0',9600)
+uC = serial.Serial('/dev/ttyACM0',9600) # Configure the serial port
 
 def loadCsv(filename):	# Loading dataset
 	lines = csv.reader(open(filename, "r"))
