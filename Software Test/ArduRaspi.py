@@ -1,3 +1,5 @@
+# Script to debug the serial read of the RasPi
+
 import serial
 import time
 arduino = serial.Serial('/dev/ttyACM0',9600)

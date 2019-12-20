@@ -1,0 +1,124 @@
+<html>
+	<head>
+		<title>
+			Testing realtime
+		</title>
+		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+		<style>
+		body {
+			/* Set font family to Google's Roboto font */
+		    font-family: 'Roboto';font-size: 22px;
+		}
+		</style>
+	</head>
+
+<!-- Set background color -->
+	<body bgcolor="#64B5F6">
+		<center>
+		<!-- Add Fr.CRCE logo -->
+		<img src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/crce_logo.png?raw=true" style="width:125px;height:90px;">
+		</center>
+		<center>
+		<!-- Add title details  -->
+		<p><h1><b> Smart Energy Monitor </h1></b></p>
+		<p><h3>Project Mentor: Prof. Jayen Modi</h3></p>
+		<p><h4>Jonathan Pereira (7337)</h4></p>
+		</center>
+
+		<!-- Add table for dashboard display -->
+    <center>
+		<div id="autorefresh">
+			<table color="black" width="1000" height ="400" cellpadding="40" border="2">
+			<tr>
+				<th><font size="8">Active Devices</th>
+				<th><font size="8">Energy Consumed(kWh)</th>
+				<th><font size="8">Bill Amount(₹)</th>
+			  	<th><font size="8">Time</th>
+
+		  </tr>
+		  <tr>
+				<th><font size="8"><div id="tag1"></div></th>
+				<th><font size="8"><div id="tag2"></div></th>
+				<th><font size="8"><div id="tag3"></div></th>
+				<th><font size="8"><div id="tag4"></div></th>
+
+		  </tr>
+		</table>
+
+
+		<table color="black" width="1000" height ="400" cellpadding="40" border="2">
+			<tr>
+				<th><font size="8">Device</th>
+				<th><font size="8">Number Active</th>
+
+		  </tr>
+		  <tr>
+				<td align="center"><font size="8">40W Bulb</td>
+				<td align="center"><font size="8"><div id="tag5"></div></td>
+		  </tr>
+		  <tr>
+				<td align="center"><font size="8">60W Bulb</td>
+				<td align="center"><font size="8"><div id="tag6"></div></td>
+		  </tr>
+		  <tr>
+				<td align="center"><font size="8">Drill</td>
+				<td align="center"><font size="8"><div id="tag7"></div></td>
+		  </tr>
+
+
+
+		</table>
+
+		<table color="black" width="1000" height ="400" cellpadding="40" border="2">
+			<tr>
+				<th><font size="8">Appliances</th>
+				<th><font size="8">Percentage</th>
+
+		  </tr>
+		  <tr>
+				<td align="center"><font size="8">Lighting</td>
+				<td align="center"><font size="8"><div id="tag8"></div></td>
+		  </tr>
+		  <tr>
+				<td align="center"><font size="8">Home Tools</td>
+				<td align="center"><font size="8"><div id="tag9"></div></td>
+		  </tr>
+
+		</table>
+		</div>
+	 </center>
+
+	 	<!-- Autorefresh data script-->
+		<script>
+			function dealWithData(jsonData)	{
+				$("#tag1").html(jsonData["current1"]);
+				$("#tag2").html(jsonData["killowatthour"]);
+				$("#tag3").html(jsonData["price"]);
+				$("#tag4").html(jsonData["time"]);
+				$("#tag5").html(jsonData["40"]);
+				$("#tag6").html(jsonData["60"]);
+				$("#tag7").html(jsonData["drill"]);
+				$("#tag8").html(jsonData["lightperc"]);
+				$("#tag9").html(jsonData["drillperc"]);
+			}
+		</script>
+
+		<script   src="https://code.jquery.com/jquery-3.2.1.js"
+		  	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  			crossorigin="anonymous">
+		</script>
+		<script type="text/javascript">
+
+			window.setInterval(function()	{
+				$.ajax({url: "http://localhost:5000",
+						type: "GET",
+						dataType: "jsonp",
+						success: function(result){
+									dealWithData(result);
+					    		}
+						});
+			}, 500);
+
+		</script>
+	</body>
+</html>
