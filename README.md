@@ -26,7 +26,9 @@ The goal of the Smart Energy Monitor is to accurately predict the monthly electr
 The combinatorial algorithm  is a brute-force method to determine the active appliances. CA finds the optimal combination of appliance states, which
 minimizes the difference between the sum of the predicted appliance power and the observed aggregate power, subject to a set of appliance models. The complexity of disaggregation for T time slices is:
 
-<img align="center" width="50%" height="50%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/CA.PNG">
+<p align="center">
+<img src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/CA.PNG" width="10%" height="10%">
+</p>
 
 where N is the number of appliances and K is the number of appliance states.
 Since the complexity of CA is exponential to the number of appliances, the approach is only computationally tractable for a small number of modelled appliances. Hence, we chose to use a Naive Bayes classifier to determine the active appliances.  A [toy demonstration](https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/Demo/co.py "toy demonstration") example is used to visualize how the number of computations increases as the number of appliances increases.
@@ -35,7 +37,7 @@ Since the complexity of CA is exponential to the number of appliances, the appro
 **Power Measurement:**  
 We can measure peak current by sampling the mains power line until we obtain the maximum and minimum peak voltage values (i.e. the maximum value measured in each direction). We can then compute the RMS voltage value from the peak-to-peak voltage. For the ACS712 we can convert the RMS voltage value into an RMS current value using the scale factor given in the datasheet [[1]]. We can then measure the power being consumed using the voltage and current RMS values.
 
-<img align="center" width="100%" height="100%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/VrmsIrms.png">
+<img align="center" width="50%" height="50%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/VrmsIrms.png">
 
 Steps to find Power for a sine wave with a zero volt offset:
 1. Find the Peak to Peak voltage (Vpp) of the ACS712 current sensor.
@@ -44,7 +46,7 @@ Steps to find Power for a sine wave with a zero volt offset:
 4. Convert the RMS voltage into RMS current by multiplying by the scale factor given for the particular ACS712 model.
 5. Multiply the measured voltage with the RMS current to find the power being drawn by the loads.
 
-<img align="center" width="100%" height="100%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/IrmsP.PNG">
+<img align="center" width="50%" height="50%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/IrmsP.PNG">
 
 **Steady State Analysis:**  
 Real power and reactive power are two of the most commonly used steady state signatures in NILM for tracking On/Off operation of appliances. The real power is the amount of energy consumed by an appliance during its operation. If the load is purely resistive then the current and voltage waveforms will always be in phase and there will be no reactive energy. For a purely reactive load the phase shift will be 90 degrees, and there will be no transfer of real power. On the other hand, due to inductive and capacitive elements of the load, there is always a phase shift between current and voltage waveforms that generates or consumes a reactive power respectively.[[2]]
@@ -68,15 +70,15 @@ Using only the current drawn by a load as a classification parameter will cause 
 
 Hence in order to more accurately differentiate between load appliances which draw the same amount of current, we also consider the value of active power and reactive power drawn by each individual load appliance. It will be highly unlikely that two completely different load appliances with different applications have the same current drawn as well as active power and reactive power values.
 
-<img align="center" width="100%" height="100%" src="http://hyperphysics.phy-astr.gsu.edu/hbase/electric/imgele/phas.png">
+<img align="center" width="50%" height="50%" src="http://hyperphysics.phy-astr.gsu.edu/hbase/electric/imgele/phas.png">
 
 In order to calculate the Active Power and Reactive Power drawn by load appliances, we must first find the phase difference between the voltage and current. We do this by implementing a simple Zero Cross Detector (ZCD) for both the voltage and current.
 
 The ZCD is built using the LM339. The amplitude of the measured current and voltage signals is reduced to meet the maximum input value permitted by the LM339.  A screenshot of the phase angle measurement circuit is shown.
 
-<img align="center" width="100%" height="100%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/triangle.jpg">
+<img align="center" width="50%" height="50%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/triangle.jpg">
 
-<img align="center" width="100%" height="100%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/Power.PNG">
+<img align="center" width="50%" height="50%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/Power.PNG">
 
 The output of the ZCD is fed to a single Ex-OR gate of a 7486 EXOR IC which will produce pulses when there is a phase shift. i.e. The two logic levels of the inputs to the EXOR gate are not equal to each other.
 
@@ -85,7 +87,7 @@ The output of the ZCD is fed to a single Ex-OR gate of a 7486 EXOR IC which will
 The time period of these pulses can be used to find the phase angle between the voltage and current waveforms.
 
 
-<img align="center" width="100%" height="100%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/Time.PNG">
+<img align="center" width="50%" height="50%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/Time.PNG">
 
 **Creating the Dataset:**  
 Each appliance will have at least two class labels associated with it depending upon the number of 'Activity States' it may undergo during normal operation. Typically most appliances will have only two states. E.g: A light bulb will have only two states - On and Off. Whereas, a kitchen mixer may have several states depending on the adjustable mixer mode. Each state is defined by its separate current and power attributes. Each sample is a measurement of the change in either current, active power or reactive power with the ground truth label being one of the appliance activity states.
