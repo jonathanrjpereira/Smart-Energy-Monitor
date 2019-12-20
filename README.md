@@ -87,11 +87,11 @@ In order to calculate the Active Power and Reactive Power drawn by load applianc
 The ZCD is built using the LM339. The amplitude of the measured current and voltage signals is reduced to meet the maximum input value permitted by the LM339.  A screenshot of the phase angle measurement circuit is shown.
 
 <p align="center">
-<img align="center" width="50%" height="50%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/triangle.jpg">
+<img align="center" width="35%" height="35%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/triangle.jpg">
 </p>
 
 <p align="center">
-<img align="center" width="50%" height="50%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/Power.PNG">
+<img align="center" width="35%" height="35%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/Power.PNG">
 </p>
 
 The output of the ZCD is fed to a single Ex-OR gate of a 7486 EXOR IC which will produce pulses when there is a phase shift. i.e. The two logic levels of the inputs to the EXOR gate are not equal to each other.
@@ -103,7 +103,7 @@ The output of the ZCD is fed to a single Ex-OR gate of a 7486 EXOR IC which will
 The time period of these pulses can be used to find the phase angle between the voltage and current waveforms.
 
 <p align="center">
-<img align="center" width="50%" height="50%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/Time.PNG">
+<img align="center" width="35%" height="35%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/Time.PNG">
 </p>
 
 **Creating the Dataset:**  
@@ -112,7 +112,7 @@ Each appliance will have at least two class labels associated with it depending 
 **Determining the Appliance State:**  
 
 <p align="center">
-<img align="center" width="50%" height="50%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/Gauss.PNG">
+<img align="center" width="35%" height="35%" src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/Gauss.PNG">
 </p>
 
 We use a Naive Bayes classification algorithm to determine which appliances are active and in which activity state are they operating in. Predictions are made by choosing the class with the closest mean and standard deviation  for each feature when compared with the training data using a Gaussian Probability Density function. i.e We combine the probability of each feature to determine the class probability.
