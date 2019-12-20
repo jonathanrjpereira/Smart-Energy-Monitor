@@ -1,3 +1,5 @@
+![Banner](https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/Banner.svg)
+
 The goal of the Smart Energy Monitor is to accurately predict the monthly electricity bill of the household using minimum hardware & by acquiring electrical data at a single location (instead of individual sensors per appliance). We do this by analyzing the current & power signatures of all the active devices and pass this information through a Naive Bayes classifier which helps us obtain the Active devices which can further be used to calculate the number of units consumed by individual load appliances.
 
 
@@ -27,7 +29,7 @@ The combinatorial algorithm  is a brute-force method to determine the active app
 minimizes the difference between the sum of the predicted appliance power and the observed aggregate power, subject to a set of appliance models. The complexity of disaggregation for T time slices is:
 
 <p align="center">
-<img src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/CA.PNG" width="35%" height="35%">
+<img src="https://github.com/jonathanrjpereira/Smart-Energy-Monitor/blob/master/img/CA.PNG" width="25%" height="25%">
 </p>
 
 where N is the number of appliances and K is the number of appliance states.
